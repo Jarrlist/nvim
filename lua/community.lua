@@ -10,6 +10,9 @@ return {
   { import = "astrocommunity.utility.hover-nvim" },
   { import = "astrocommunity.colorscheme.vscode-nvim" },
   { import = "astrocommunity.scrolling.satellite-nvim" },
+  { import = "astrocommunity.editing-support.vim-visual-multi" },
+  { import = "astrocommunity.scrolling.neoscroll-nvim" },
+  { import = "astrocommunity.editing-support.yanky-nvim" },
   -- { import = "astrocommunity.workflow.bad-practices-nvim" },
   -- import/override with your plugins folder
 }

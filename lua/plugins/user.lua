@@ -43,6 +43,33 @@ return {
   -- You can disable default plugins as follows:
   { "max397574/better-escape.nvim", enabled = false },
 
+  -- Fix vim-visual-multi keybinding conflicts with macOS
+  {
+    "mg979/vim-visual-multi",
+    init = function()
+      -- Disable all default mappings (like the working YouTube config)
+      vim.g.VM_default_mappings = 0
+      vim.g.VM_maps = {
+        ['Find Under'] = ''  -- Disable default Find Under
+      }
+      vim.g.VM_add_cursor_at_pos_no_mappings = 1
+    end,
+    keys = {
+      -- Multi-select like VS Code Cmd+D
+      { "<C-n>", "<Plug>(VM-Find-Under)", desc = "VM Find Under" },
+      { "<C-d>", "<Plug>(VM-Find-Under)", desc = "VM Find Under (Alt)" },
+      
+      -- Add cursors up/down using Ctrl+Shift+Up/Down
+      { "<C-Up>", "<Plug>(VM-Add-Cursor-Up)", desc = "VM Add Cursor Up" },
+      { "<C-Down>", "<Plug>(VM-Add-Cursor-Down)", desc = "VM Add Cursor Down" },
+      
+      -- Leader-based alternatives that always work
+      { "<leader>ma", "<Plug>(VM-Select-All)<Tab>", desc = "VM Select All" },
+      { "<leader>mp", "<Plug>(VM-Add-Cursor-At-Pos)", desc = "VM Add Cursor At Pos" },
+      { "<leader>mr", "<Plug>(VM-Start-Regex-Search)", desc = "VM Regex Search" },
+    },
+  },
+
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
     "L3MON4D3/LuaSnip",
